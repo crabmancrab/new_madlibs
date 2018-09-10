@@ -1048,21 +1048,22 @@ def spaceman():
             letterGuessed=input('\nguess a letter: ')
             if len(letterGuessed)!=1 or (ord(letterGuessed.lower())<97 or ord(letterGuessed.lower())>122):
                 letterIsNotALetter=True
-            elif letterGuessed in guessedLetters:
+                print("\nGuess an actual letter!")
+            elif letterGuessed.lower() in guessedLetters:
                 letterIsNotALetter=True
                 print('\nGuess a letter you haven\'t already guessed')
             else:
                 letterIsNotALetter=False
                 letterGuessed=letterGuessed.lower()
                 
-        guessedLetters.append(letterGuessed)
+        guessedLetters.append(letterGuessed.lower())
                 
         indicesArr=[]
         
         count=0
         
         for i in range(0,len(wordToGuess)):
-            if wordToGuess[i] == letterGuessed:
+            if wordToGuess[i] == letterGuessed.lower():
                 indicesArr.append(i)
                 count += 1;
         totalCount+=count
